@@ -150,13 +150,13 @@ public class g3PlayerV4 implements OrganismsPlayer {
         boolean movBOOL = moveDecisions.stream().allMatch(element -> element.equals(firstElementMOV));
 
 
-        System.out.println("--------------------------------");
-        System.out.println("decision for organism: " + this.dna);
-        System.out.println("move weights:" + moveDecisions);
-        System.out.println("max movement weight:" + movMax);
-        System.out.println("rep weights:" +repDecisions);
-        System.out.println("max reproduce weight:" + repMax);
-        System.out.println("decision to stay weight: "+ decisionWeightStay);
+//        System.out.println("--------------------------------");
+//        System.out.println("decision for organism: " + this.dna);
+//        System.out.println("move weights:" + moveDecisions);
+//        System.out.println("max movement weight:" + movMax);
+//        System.out.println("rep weights:" +repDecisions);
+//        System.out.println("max reproduce weight:" + repMax);
+//        System.out.println("decision to stay weight: "+ decisionWeightStay);
 
         if (repMax >= movMax) {
             if(repMax>decisionWeightStay) {
@@ -167,11 +167,11 @@ public class g3PlayerV4 implements OrganismsPlayer {
                     childPosChoice = Action.fromInt(repInt);
                 }
                 int childKey = random.nextInt(1, 255);
-                System.out.println("reproduced @: " + childPosChoice);
+                //System.out.println("reproduced @: " + childPosChoice);
                 return Move.reproduce(childPosChoice, childKey);
             }
             else{
-                System.out.println(Action.fromInt(0));
+                //System.out.println(Action.fromInt(0));
                 return Move.movement(Action.fromInt(0));
 
             }
@@ -180,18 +180,18 @@ public class g3PlayerV4 implements OrganismsPlayer {
             if(movMax>decisionWeightStay){
                 if(movBOOL){
                     int childKey = random.nextInt(1, 255);
-                    System.out.println("reproduced @: " + childPosChoice);
+                    //System.out.println("reproduced @: " + childPosChoice);
                     return Move.reproduce(childPosChoice, childKey);
                 }
                 else {
                     actionChoice = Action.fromInt(movInt);
                 }
-                System.out.println("moved to: " + actionChoice);
+                //System.out.println("moved to: " + actionChoice);
                 return Move.movement(actionChoice);
 
             }
             else{
-                System.out.println(Action.fromInt(0));
+                //System.out.println(Action.fromInt(0));
                 return Move.movement(Action.fromInt(0));
 
 
